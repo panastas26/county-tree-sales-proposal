@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CoGrow x County Tree Service — Proposal</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@500;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --green: #1a3d2b;
+      --green-light: #24523b;
+      --gold: #c9a84c;
+      --gold-light: #e2c96a;
+      --white: #ffffff;
+      --gray-50: #f8f9fa;
+      --gray-100: #f1f3f5;
+      --gray-200: #e9ecef;
+      --gray-600: #6c757d;
+      --gray-800: #343a40;
+      --gray-900: #212529;
+    }
+
+    html { font-size: 16px; }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      color: var(--gray-900);
+      background: var(--gray-100);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .proposal {
+      max-width: 820px;
+      margin: 40px auto;
+      background: var(--white);
+      box-shadow: 0 1px 3px rgba(0,0,0,.08), 0 8px 30px rgba(0,0,0,.06);
+      border-radius: 4px;
+      overflow: hidden;
+    }
+
+    /* Cover */
+    .cover {
+      background: var(--green);
+      color: var(--white);
+      padding: 80px 60px 60px;
+      position: relative;
+    }
+    .cover::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 4px;
+      background: var(--gold);
+    }
+    .cover-label {
+      font-family: 'Inter', sans-serif;
+      font-size: .75rem;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 24px;
+    }
+    .cover h1 {
+      font-family: 'Epilogue', sans-serif;
+      font-weight: 800;
+      font-size: 2.5rem;
+      line-height: 1.15;
+      margin-bottom: 12px;
+    }
+    .cover h1 span { color: var(--gold); }
+    .cover-meta {
+      margin-top: 40px;
+      font-size: .9rem;
+      color: rgba(255,255,255,.7);
+      line-height: 1.8;
+    }
+    .cover-meta strong { color: var(--white); font-weight: 600; }
+
+    /* Sections */
+    .section {
+      padding: 48px 60px;
+      border-bottom: 1px solid var(--gray-200);
+    }
+    .section:last-child { border-bottom: none; }
+
+    .section-number {
+      font-family: 'Epilogue', sans-serif;
+      font-size: .7rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 8px;
+    }
+    .section h2 {
+      font-family: 'Epilogue', sans-serif;
+      font-weight: 700;
+      font-size: 1.5rem;
+      color: var(--green);
+      margin-bottom: 20px;
+    }
+    .section p {
+      margin-bottom: 16px;
+      color: var(--gray-800);
+    }
+
+    /* Problem cards */
+    .problems {
+      display: grid;
+      gap: 20px;
+      margin-top: 24px;
+    }
+    .problem-card {
+      background: var(--gray-50);
+      border-left: 4px solid var(--gold);
+      padding: 24px 28px;
+      border-radius: 0 6px 6px 0;
+    }
+    .problem-card h3 {
+      font-family: 'Epilogue', sans-serif;
+      font-weight: 700;
+      font-size: 1.05rem;
+      color: var(--green);
+      margin-bottom: 8px;
+    }
+    .problem-card p {
+      font-size: .92rem;
+      margin-bottom: 0;
+      color: var(--gray-800);
+    }
+
+    /* Solution list */
+    .solution-list {
+      list-style: none;
+      margin-top: 20px;
+    }
+    .solution-list li {
+      padding: 16px 0;
+      border-bottom: 1px solid var(--gray-200);
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+    }
+    .solution-list li:last-child { border-bottom: none; }
+    .solution-icon {
+      flex-shrink: 0;
+      width: 36px;
+      height: 36px;
+      background: var(--green);
+      color: var(--gold);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: .85rem;
+      margin-top: 2px;
+    }
+    .solution-list h3 {
+      font-family: 'Epilogue', sans-serif;
+      font-weight: 700;
+      font-size: 1rem;
+      color: var(--green);
+      margin-bottom: 4px;
+    }
+    .solution-list p {
+      font-size: .92rem;
+      margin-bottom: 0;
+    }
+
+    /* Deliverables */
+    .deliverables {
+      list-style: none;
+      margin-top: 20px;
+    }
+    .deliverables li {
+      padding: 12px 0;
+      border-bottom: 1px solid var(--gray-200);
+      font-size: .95rem;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .deliverables li:last-child { border-bottom: none; }
+    .check {
+      color: var(--green);
+      font-weight: 700;
+      font-size: 1.1rem;
+      flex-shrink: 0;
+    }
+
+    /* Timeline */
+    .timeline {
+      margin-top: 24px;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 20px;
+    }
+    .timeline-step {
+      text-align: center;
+      padding: 28px 20px;
+      background: var(--gray-50);
+      border-radius: 8px;
+      position: relative;
+    }
+    .timeline-step .month {
+      font-family: 'Epilogue', sans-serif;
+      font-weight: 800;
+      font-size: 1.8rem;
+      color: var(--green);
+      margin-bottom: 4px;
+    }
+    .timeline-step .month-label {
+      font-size: .7rem;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 12px;
+    }
+    .timeline-step p {
+      font-size: .88rem;
+      margin-bottom: 0;
+      color: var(--gray-800);
+    }
+
+    /* Investment */
+    .investment-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin-top: 24px;
+    }
+    .invest-card {
+      background: var(--gray-50);
+      padding: 32px 28px;
+      border-radius: 8px;
+      text-align: center;
+    }
+    .invest-card.primary {
+      background: var(--green);
+      color: var(--white);
+    }
+    .invest-card .label {
+      font-size: .75rem;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 8px;
+    }
+    .invest-card .price {
+      font-family: 'Epilogue', sans-serif;
+      font-weight: 800;
+      font-size: 2rem;
+      margin-bottom: 4px;
+    }
+    .invest-card.primary .price { color: var(--white); }
+    .invest-card .note {
+      font-size: .85rem;
+      color: var(--gray-600);
+    }
+    .invest-card.primary .note { color: rgba(255,255,255,.65); }
+
+    .roi-box {
+      margin-top: 28px;
+      background: linear-gradient(135deg, var(--green), var(--green-light));
+      color: var(--white);
+      padding: 32px;
+      border-radius: 8px;
+    }
+    .roi-box h3 {
+      font-family: 'Epilogue', sans-serif;
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: var(--gold);
+      margin-bottom: 12px;
+    }
+    .roi-box p {
+      color: rgba(255,255,255,.9);
+      font-size: .95rem;
+      margin-bottom: 8px;
+    }
+    .roi-box p:last-child { margin-bottom: 0; }
+    .roi-box strong { color: var(--white); }
+
+    /* Why CoGrow */
+    .why-list {
+      list-style: none;
+      margin-top: 20px;
+    }
+    .why-list li {
+      padding: 14px 0;
+      border-bottom: 1px solid var(--gray-200);
+      font-size: .95rem;
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+    }
+    .why-list li:last-child { border-bottom: none; }
+    .why-icon {
+      flex-shrink: 0;
+      width: 8px;
+      height: 8px;
+      background: var(--gold);
+      border-radius: 50%;
+      margin-top: 8px;
+    }
+
+    /* CTA */
+    .cta-section {
+      background: var(--green);
+      padding: 56px 60px;
+      text-align: center;
+      position: relative;
+    }
+    .cta-section::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 4px;
+      background: var(--gold);
+    }
+    .cta-section h2 {
+      font-family: 'Epilogue', sans-serif;
+      font-weight: 800;
+      font-size: 1.6rem;
+      color: var(--white);
+      margin-bottom: 12px;
+    }
+    .cta-section p {
+      color: rgba(255,255,255,.7);
+      margin-bottom: 32px;
+      font-size: .95rem;
+    }
+    .cta-btn {
+      display: inline-block;
+      background: var(--gold);
+      color: var(--green);
+      font-family: 'Epilogue', sans-serif;
+      font-weight: 700;
+      font-size: 1rem;
+      padding: 16px 40px;
+      border-radius: 6px;
+      text-decoration: none;
+      transition: background .2s, transform .15s;
+    }
+    .cta-btn:hover { background: var(--gold-light); transform: translateY(-1px); }
+
+    /* Footer */
+    .footer {
+      padding: 32px 60px;
+      text-align: center;
+      font-size: .82rem;
+      color: var(--gray-600);
+      background: var(--gray-50);
+    }
+    .footer a { color: var(--green); text-decoration: none; font-weight: 500; }
+
+    /* Print */
+    @media print {
+      body { background: white; }
+      .proposal { box-shadow: none; margin: 0; max-width: 100%; }
+      .cta-btn { border: 2px solid var(--green); }
+    }
+
+    /* Mobile */
+    @media (max-width: 680px) {
+      .cover { padding: 48px 28px 40px; }
+      .cover h1 { font-size: 1.8rem; }
+      .section { padding: 36px 28px; }
+      .cta-section { padding: 40px 28px; }
+      .footer { padding: 24px 28px; }
+      .timeline { grid-template-columns: 1fr; }
+      .investment-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="proposal">
+
+    <!-- COVER -->
+    <div class="cover">
+      <div class="cover-label">Consulting Proposal</div>
+      <h1>CoGrow <span>&times;</span> County Tree Service</h1>
+      <div class="cover-meta">
+        <strong>Prepared for:</strong> Brian — County Tree Service, Stickney, IL<br>
+        <strong>Prepared by:</strong> PJ Anastas — CoGrow<br>
+        <strong>Date:</strong> March 2026
+      </div>
+    </div>
+
+    <!-- 01 THE PROBLEM -->
+    <div class="section">
+      <div class="section-number">01</div>
+      <h2>The Problem</h2>
+      <p>County Tree Service does quality work — but right now, the online presence is working against you, not for you. Here's what's costing you jobs:</p>
+      <div class="problems">
+        <div class="problem-card">
+          <h3>Fragmented Web Presence</h3>
+          <p>Multiple domains are splitting your authority and confusing potential customers. Instead of one strong digital presence, your traffic and credibility are scattered across separate sites — none of which rank well on their own.</p>
+        </div>
+        <div class="problem-card">
+          <h3>No Google Business Profile</h3>
+          <p>When someone in Stickney or the Chicago suburbs searches "tree service near me," you're invisible. Without a Google Business Profile, you don't appear in the Map Pack — the first thing people see and click. Your competitors are getting those calls instead.</p>
+        </div>
+        <div class="problem-card">
+          <h3>Poor SEO — Not Ranking</h3>
+          <p>Your current sites aren't optimized for the searches that bring in jobs. Competitors who rank on page one are capturing the customers who should be calling you. Every day without ranking is revenue walking to someone else.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 02 THE SOLUTION -->
+    <div class="section">
+      <div class="section-number">02</div>
+      <h2>The Solution</h2>
+      <p>We fix the foundation and then build on it — one authoritative online presence that turns searches into phone calls.</p>
+      <ul class="solution-list">
+        <li>
+          <div class="solution-icon">1</div>
+          <div>
+            <h3>One Authoritative Website</h3>
+            <p>Consolidate your multiple domains into a single, fast, modern site built to convert. Clean design, mobile-first, lightning-fast load times. One domain that Google trusts.</p>
+          </div>
+        </li>
+        <li>
+          <div class="solution-icon">2</div>
+          <div>
+            <h3>Google Business Profile — Built &amp; Optimized</h3>
+            <p>We create, verify, and fully optimize your Google Business Profile — categories, service areas, photos, posts, and review strategy. You show up in the Map Pack where customers are actually looking.</p>
+          </div>
+        </li>
+        <li>
+          <div class="solution-icon">3</div>
+          <div>
+            <h3>Local SEO</h3>
+            <p>Keyword targeting for high-intent searches (tree removal, tree trimming, stump grinding + your service areas). On-page optimization, citation building across 50+ directories, and monthly reporting so you can see the movement.</p>
+          </div>
+        </li>
+        <li>
+          <div class="solution-icon">4</div>
+          <div>
+            <h3>GEO / AI Search Optimization</h3>
+            <p>Search is changing. AI engines like ChatGPT and Perplexity are answering local queries — "best tree service in Stickney" — and pulling from structured data. We optimize your presence so AI search engines recommend you, not your competitors.</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <!-- 03 DELIVERABLES -->
+    <div class="section">
+      <div class="section-number">03</div>
+      <h2>Deliverables</h2>
+      <ul class="deliverables">
+        <li><span class="check">&#10003;</span> New fast, conversion-optimized website</li>
+        <li><span class="check">&#10003;</span> Verified and fully optimized Google Business Profile</li>
+        <li><span class="check">&#10003;</span> Monthly SEO reports showing rank movement and traffic</li>
+        <li><span class="check">&#10003;</span> AI search visibility setup (ChatGPT, Perplexity, Google AI Overview)</li>
+        <li><span class="check">&#10003;</span> Ongoing management — CoGrow handles everything</li>
+      </ul>
+    </div>
+
+    <!-- 04 TIMELINE -->
+    <div class="section">
+      <div class="section-number">04</div>
+      <h2>Timeline</h2>
+      <div class="timeline">
+        <div class="timeline-step">
+          <div class="month">1</div>
+          <div class="month-label">Month One</div>
+          <p>New website live. Google Business Profile created, verified, and optimized.</p>
+        </div>
+        <div class="timeline-step">
+          <div class="month">2</div>
+          <div class="month-label">Month Two</div>
+          <p>SEO baseline established. Citation building across 50+ directories begins.</p>
+        </div>
+        <div class="timeline-step">
+          <div class="month">3+</div>
+          <div class="month-label">Month Three &amp; Beyond</div>
+          <p>Rankings climb. Leads increase. You see the phone ring from people who found you online.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 05 INVESTMENT -->
+    <div class="section">
+      <div class="section-number">05</div>
+      <h2>Investment</h2>
+      <div class="investment-grid">
+        <div class="invest-card">
+          <div class="label">Setup</div>
+          <div class="price">$2,000</div>
+          <div class="note">One-time</div>
+        </div>
+        <div class="invest-card primary">
+          <div class="label">Monthly</div>
+          <div class="price">$997/mo</div>
+          <div class="note">Ongoing management &amp; optimization</div>
+        </div>
+      </div>
+      <div class="roi-box">
+        <h3>The Math</h3>
+        <p>Your average tree job is <strong>$1,000+</strong>.</p>
+        <p><strong>One new job</strong> from your online presence pays for the entire setup.</p>
+        <p><strong>One job per month</strong> covers the retainer — everything after that is profit.</p>
+        <p>Right now, your competitors are taking those jobs because they rank and you don't.</p>
+      </div>
+    </div>
+
+    <!-- 06 WHY COGROW -->
+    <div class="section">
+      <div class="section-number">06</div>
+      <h2>Why CoGrow</h2>
+      <ul class="why-list">
+        <li><div class="why-icon"></div><div><strong>Built for field service.</strong> We work exclusively with service businesses — tree care, HVAC, plumbing, electrical. We know what converts in your industry.</div></li>
+        <li><div class="why-icon"></div><div><strong>AI-powered.</strong> We use AI tools to move faster, optimize smarter, and stay ahead of how search is evolving — including AI search engines that your competitors aren't even thinking about yet.</div></li>
+        <li><div class="why-icon"></div><div><strong>Month-to-month after setup.</strong> No long-term contracts. We keep your business because we earn it every month, not because you're locked in.</div></li>
+      </ul>
+    </div>
+
+    <!-- CTA -->
+    <div class="cta-section">
+      <h2>Ready to move forward?</h2>
+      <p>Let's lock in a start date.</p>
+      <a href="https://cal.com/cogrowai/freeaudit" class="cta-btn">Book a Call with PJ</a>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer">
+      PJ Anastas &middot; <a href="mailto:paul@cogrow.ai">paul@cogrow.ai</a> &middot; <a href="https://cogrow.ai">cogrow.ai</a>
+    </div>
+
+  </div>
+</body>
+</html>
